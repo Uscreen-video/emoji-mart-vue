@@ -1,6 +1,6 @@
 <template>
 
-<div class="emoji-mart" :style="customStyles">
+<div :class="{ 'emoji-mart': true, [`emoji-mart-${this.prefferedTheme}`]: true }" :style="customStyles">
   <div class="emoji-mart-bar" v-if="showCategories">
     <anchors
       :data="mutableData"
@@ -145,7 +145,7 @@ export default {
       previewEmoji: null,
       searchEmojis: null,
       customEmojis: customEmojis,
-      recentEmojis: recentEmojis
+      recentEmojis: recentEmojis,
     }
   },
   computed: {
@@ -154,6 +154,18 @@ export default {
         width: this.calculateWidth + 'px',
         ...this.pickerStyles
       }
+    },
+    prefferedTheme() {
+      const { theme } = this
+
+      if (theme != 'auto') return theme
+      if (typeof window.matchMedia !== 'function') return PickerProps.theme.default
+
+      const darkMatchMedia = matchMedia('(prefers-color-scheme: dark)')
+
+      if (darkMatchMedia.media.match(/^not/)) return PickerProps.theme.default
+
+      return darkMatchMedia.matches ? 'dark' : 'light'
     },
     emojiProps() {
       return {
@@ -216,6 +228,9 @@ export default {
     this.activeCategory = this.filteredCategories[0]
   },
   methods: {
+    onDarkThemeChange(e) {
+      console.log(e)
+    },
     onScroll() {
       if (this.infiniteScroll && !this.waitingForPaint) {
         this.waitingForPaint = true
@@ -302,59 +317,3 @@ export default {
 }
 
 </script>
-
-<style>
-
-.emoji-mart,
-.emoji-mart * {
-  box-sizing: border-box;
-  line-height: 1.15;
-}
-
-.emoji-mart .emoji-mart-emoji {
-  padding: 6px;
-}
-
-</style>
-
-<style scoped>
-
-.emoji-mart {
-  font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif;
-  font-size: 16px;
-  display: flex;
-  flex-direction: column;
-  height: 420px;
-  color: #222427;
-  border: 1px solid #d9d9d9;
-  border-radius: 5px;
-  background: #fff;
-}
-
-.emoji-mart-bar {
-  border: 0 solid #d9d9d9;
-}
-
-.emoji-mart-bar:first-child {
-  border-bottom-width: 1px;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-}
-
-.emoji-mart-bar:last-child {
-  border-top-width: 1px;
-  border-bottom-left-radius: 5px;
-  border-bottom-right-radius: 5px;
-}
-
-.emoji-mart-scroll {
-  position: relative;
-  overflow-y: scroll;
-  flex: 1;
-  padding: 0 6px 6px 6px;
-  z-index: 0; /* Fix for rendering sticky positioned category labels on Chrome */
-  will-change: transform; /* avoids "repaints on scroll" in mobile Chrome */
-  -webkit-overflow-scrolling: touch;
-}
-
-</style>

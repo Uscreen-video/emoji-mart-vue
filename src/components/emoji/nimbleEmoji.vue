@@ -120,13 +120,3 @@ export default {
 }
 
 </script>
-
-<style scoped>
-
-.emoji-mart-emoji {
-  position: relative;
-  display: inline-block;
-  font-size: 0;
-}
-
-</style>

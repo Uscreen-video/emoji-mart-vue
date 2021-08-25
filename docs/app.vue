@@ -12,7 +12,14 @@
   </div>
 
   <div class="row">
+    <template v-for="theme in ['light', 'dark', 'auto']">
+      <button :key="theme" @click="activeTheme = theme" :disabled="activeTheme == theme">{{ theme }}</button>
+    </template>
+  </div>
+
+  <div class="row">
     <picker
+      :theme="activeTheme"
       :set="activeSet"
       :native="native"
       :custom="custom"
@@ -37,6 +44,7 @@
 <script>
 
 import { Picker, Emoji } from '../src'
+import '../css/emoji-mart.css'
 
 const CUSTOM_EMOJIS = [
   {
@@ -63,6 +71,7 @@ export default {
   data() {
     return {
       activeSet: 'native',
+      activeTheme: 'light',
       emoji: 'point_up',
       title: 'Pick your emoji…',
       custom: CUSTOM_EMOJIS

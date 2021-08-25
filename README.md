@@ -3,17 +3,18 @@
 <div align="center">
   <br><b>Emoji Mart (Vue)</b> is a Slack-like customizable<br>emoji picker component for VueJS
   <br><a href="https://jm-david.github.io/emoji-mart-vue">Demo</a> • <a href="https://github.com/jm-david/emoji-mart-vue/releases">Changelog</a>
-  <br><img src="https://cloud.githubusercontent.com/assets/436043/17186519/9e71e8fe-5403-11e6-9314-21365c56a601.png">
+  <br><img src="https://user-images.githubusercontent.com/436043/71363432-1b69d000-2567-11ea-9416-88446025e03c.png">
 </div>
 
 ## Installation
 
-`npm install --save emoji-mart-vue`
+`npm install --save @uscreentv/emoji-mart-vue`
 
 ## Components
 ### Picker
 ```js
-import { Picker } from 'emoji-mart-vue'
+import '@uscreentv/emoji-mart-vue/css/emoji-mart.css'
+import { Picker } from '@uscreentv/emoji-mart-vue'
 ```
 
 ```html
@@ -26,6 +27,7 @@ import { Picker } from 'emoji-mart-vue'
 
 | Prop | Required | Default | Description |
 | ---- | :------: | ------- | ----------- |
+| **theme** | | `light` | The picker theme: `'auto'`, `'light'`, `'dark'` |
 | **autoFocus** | | `false` | Auto focus the search input when mounted |
 | **color** | | `#ae65c5` | The top bar anchors select and hover color |
 | **emoji** | | `department_store` | The emoji shown when no emojis are hovered, set to an empty string to show nothing |
@@ -107,7 +109,7 @@ To use these data files (or any other custom data), use the `NimblePicker` compo
 
 ```js
 import data from 'emoji-mart-vue/data/messenger.json'
-import { NimblePicker } from 'emoji-mart-vue'
+import { NimblePicker } from '@uscreentv/emoji-mart-vue'
 ```
 
 ```html
@@ -153,7 +155,7 @@ import { NimblePicker } from 'emoji-mart-vue'
 
 ### Emoji
 ```js
-import { Emoji } from 'emoji-mart-vue'
+import { Emoji } from '@uscreentv/emoji-mart-vue'
 ```
 
 ```html
@@ -204,7 +206,7 @@ function emojiFallback(emoji) {
 You can provide custom emojis which will show up in their own category.
 
 ```js
-import { Picker } from 'emoji-mart-vue'
+import { Picker } from '@uscreentv/emoji-mart-vue'
 
 const customEmojis = [
   {
@@ -226,7 +228,7 @@ const customEmojis = [
 The `Picker` doesn’t have to be mounted for you to take advantage of the advanced search results.
 
 ```js
-import { emojiIndex } from 'emoji-mart-vue'
+import { emojiIndex } from '@uscreentv/emoji-mart-vue'
 
 emojiIndex.search('christmas').map((o) => o.native)
 // => [🎄, 🎅🏼, 🔔, 🎁, ⛄️, ❄️]
@@ -235,7 +237,7 @@ emojiIndex.search('christmas').map((o) => o.native)
 ### With custom data
 ```js
 import data from 'emoji-mart-vue/data/messenger'
-import { NimbleEmojiIndex } from 'emoji-mart-vue'
+import { NimbleEmojiIndex } from '@uscreentv/emoji-mart-vue'
 
 let emojiIndex = new NimbleEmojiIndex(data)
 emojiIndex.search('christmas')
@@ -245,7 +247,7 @@ emojiIndex.search('christmas')
 By default EmojiMart will store user chosen skin and frequently used emojis in `localStorage`. That can however be overwritten should you want to store these in your own storage.
 
 ```js
-import { store } from 'emoji-mart-vue'
+import { store } from '@uscreentv/emoji-mart-vue'
 
 store.setHandlers({
   getter: (key) => {

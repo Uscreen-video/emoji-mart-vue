@@ -3,3 +3,6 @@ dist/
 dist-es/
 stats.json
 report.html
+*.tgz
+.idea
+.vscode

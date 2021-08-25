@@ -43,6 +43,11 @@ const EmojiProps = {
 }
 
 const PickerProps = {
+  theme: {
+    type: String,
+    default: 'light',
+    validator: (val) => ['light', 'dark', 'auto'].includes(val)
+  },
   perLine: {
     type: Number,
     default: 9

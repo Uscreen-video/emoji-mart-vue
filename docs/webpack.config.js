@@ -40,7 +40,11 @@ var config = {
         options: {
           limit: 10000
         }
-      }
+      },
+      {
+        test: /\.css$/,
+        use: ['vue-style-loader', 'css-loader', 'postcss-loader']
+      },
     ],
   },
 
