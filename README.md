@@ -3,7 +3,7 @@
 <div align="center">
   <br><b>Emoji Mart (Vue)</b> is a Slack-like customizable<br>emoji picker component for VueJS
   <br><a href="https://jm-david.github.io/emoji-mart-vue">Demo</a> • <a href="https://github.com/jm-david/emoji-mart-vue/releases">Changelog</a>
-  <br><img src="https://user-images.githubusercontent.com/436043/71363432-1b69d000-2567-11ea-9416-88446025e03c.png">
+  <br><img width="400" src="https://user-images.githubusercontent.com/436043/71363432-1b69d000-2567-11ea-9416-88446025e03c.png">
 </div>
 
 ## Installation
