@@ -28,6 +28,7 @@ import { Picker } from '@uscreentv/emoji-mart-vue'
 | Prop | Required | Default | Description |
 | ---- | :------: | ------- | ----------- |
 | **theme** | | `light` | The picker theme: `'auto'`, `'light'`, `'dark'` |
+| **height** | | `270` | The picker's emoji area height  |
 | **autoFocus** | | `false` | Auto focus the search input when mounted |
 | **color** | | `#ae65c5` | The top bar anchors select and hover color |
 | **emoji** | | `department_store` | The emoji shown when no emojis are hovered, set to an empty string to show nothing |
@@ -43,7 +44,6 @@ import { Picker } from '@uscreentv/emoji-mart-vue'
 | **sheetSize** | | `64` | The emoji [sheet size](#sheet-sizes): `16, 20, 32, 64` |
 | **backgroundImageFn** | | ```((set, sheetSize) => …)``` | A Fn that returns that image sheet to use for emojis. Useful for avoiding a request if you have the sheet locally. |
 | **emojisToShowFilter** | | ```((emoji) => true)``` | A Fn to choose whether an emoji should be displayed or not |
-| **showPreview** | | `true` | Display preview section |
 | **showSearch** | | `true` | Display search section |
 | **showCategories** | | `true` | Display categories |
 | **showSkinTones** | | `true` | Display skin tones picker |

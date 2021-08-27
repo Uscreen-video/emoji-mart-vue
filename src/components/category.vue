@@ -19,8 +19,6 @@
     :tooltip="emojiProps.tooltip"
     :background-image-fn="emojiProps.backgroundImageFn"
     @click="emojiProps.onClick"
-    @mouseenter="emojiProps.onEnter"
-    @mouseleave="emojiProps.onLeave"
   />
 
   <div v-if="!hasResults">

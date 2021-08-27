@@ -88,7 +88,6 @@
 .emoji-mart-scroll {
   overflow-y: scroll;
   overflow-x: hidden;
-  height: 270px;
   padding: 0 6px 6px 6px;
   will-change: transform; /* avoids "repaints on scroll" in mobile Chrome */
 }
@@ -210,57 +209,6 @@
 }
 .emoji-mart-no-results .emoji-mart-emoji:hover:before {
   content: none;
-}
-
-.emoji-mart-preview {
-  position: relative;
-  height: 70px;
-}
-
-.emoji-mart-preview-emoji,
-.emoji-mart-preview-data,
-.emoji-mart-preview-skins {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.emoji-mart-preview-emoji {
-  left: 12px;
-}
-
-.emoji-mart-preview-data {
-  left: 68px; right: 12px;
-  word-break: break-all;
-}
-
-.emoji-mart-preview-skins {
-  right: 30px;
-  text-align: right;
-}
-
-.emoji-mart-preview-skins.custom {
-  right: 10px;
-  text-align: right;
-}
-
-.emoji-mart-preview-name {
-  font-size: 14px;
-}
-
-.emoji-mart-preview-shortname {
-  font-size: 12px;
-  color: #888;
-}
-.emoji-mart-preview-shortname + .emoji-mart-preview-shortname,
-.emoji-mart-preview-shortname + .emoji-mart-preview-emoticon,
-.emoji-mart-preview-emoticon + .emoji-mart-preview-emoticon {
-  margin-left: .5em;
-}
-
-.emoji-mart-preview-emoticon {
-  font-size: 11px;
-  color: #bbb;
 }
 
 .emoji-mart-title span {

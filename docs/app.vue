@@ -27,16 +27,6 @@
       :title="title"
     />
   </div>
-
-  <div class="row-small">
-    <iframe
-      src="https://ghbtns.com/github-btn.html?user=jm-david&repo=emoji-mart-vue&type=star&count=true"
-      frameBorder="0"
-      scrolling="0"
-      width="90px"
-      height="20px"
-    ></iframe>
-  </div>
 </div>
 
 </template>
@@ -52,18 +42,6 @@ const CUSTOM_EMOJIS = [
     short_names: ['parrot'],
     keywords: ['party'],
     imageUrl: './images/parrot.gif'
-  },
-  {
-    name: 'Octocat',
-    short_names: ['octocat'],
-    keywords: ['github'],
-    imageUrl: 'https://assets-cdn.github.com/images/icons/emoji/octocat.png?v7'
-  },
-  {
-    name: 'Squirrel',
-    short_names: ['shipit', 'squirrel'],
-    keywords: ['github'],
-    imageUrl: 'https://assets-cdn.github.com/images/icons/emoji/shipit.png?v7'
   },
 ]
 

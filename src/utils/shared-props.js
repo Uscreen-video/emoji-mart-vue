@@ -48,6 +48,10 @@ const PickerProps = {
     default: 'light',
     validator: (val) => ['light', 'dark', 'auto'].includes(val)
   },
+  height: {
+    type: Number,
+    default: 270
+  },
   perLine: {
     type: Number,
     default: 9
@@ -122,10 +126,6 @@ const PickerProps = {
     default() {
       return {}
     }
-  },
-  showPreview: {
-    type: Boolean,
-    default: true
   },
   showSearch: {
     type: Boolean,

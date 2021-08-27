@@ -26,7 +26,7 @@
     @search="onSearch"
   />
 
-  <div class="emoji-mart-scroll" ref="scroll" @scroll="onScroll">
+  <div class="emoji-mart-scroll" :style="{ height: `${height}px`}" ref="scroll" @scroll="onScroll">
     <category
       v-show="searchEmojis"
       :data="mutableData"
@@ -49,19 +49,6 @@
       :emoji-props="emojiProps"
     />
   </div>
-
-  <div class="emoji-mart-bar" v-if="showPreview">
-    <preview
-      :data="mutableData"
-      :title="title"
-      :emoji="previewEmoji"
-      :idle-emoji="emoji"
-      :show-skin-tones="showSkinTones"
-      :emoji-props="emojiProps"
-      :skin-props="skinProps"
-      @change="onSkinChange"
-    />
-  </div>
 </div>
 
 </template>
@@ -76,7 +63,6 @@ import { uncompress } from '../../utils/data'
 import { PickerProps } from '../../utils/shared-props'
 import Anchors from '../anchors'
 import Category from '../category'
-import Preview from '../preview'
 import Search from '../search'
 
 const RECENT_CATEGORY = { id: 'recent', name: 'Recent', emojis: null }
@@ -142,7 +128,6 @@ export default {
       activeSkin: this.skin || store.get('skin') || this.defaultSkin,
       categories: [],
       activeCategory: null,
-      previewEmoji: null,
       searchEmojis: null,
       customEmojis: customEmojis,
       recentEmojis: recentEmojis,
@@ -177,8 +162,6 @@ export default {
         forceSize: this.native,
         tooltip: this.emojiTooltip,
         backgroundImageFn: this.backgroundImageFn,
-        onEnter: this.onEmojiEnter.bind(this),
-        onLeave: this.onEmojiLeave.bind(this),
         onClick: this.onEmojiClick.bind(this)
       }
     },
@@ -285,18 +268,6 @@ export default {
     onSearch(emojis) {
       this.searchEmojis = emojis
     },
-    onEmojiEnter(emoji) {
-      if (emoji.custom) {
-        // Use Array.prototype.find() when it is more widely supported.
-        const customEmoji = this.customEmojis.filter(_emoji => _emoji.id === emoji.id)[0]
-        emoji = Object.assign({}, emoji, customEmoji)
-      }
-
-      this.previewEmoji = emoji
-    },
-    onEmojiLeave(emoji) {
-      this.previewEmoji = null
-    },
     onEmojiClick(emoji) {
       this.$emit('select', emoji)
       frequently.add(emoji)
@@ -311,7 +282,6 @@ export default {
   components: {
     Anchors,
     Category,
-    Preview,
     Search
   }
 }
